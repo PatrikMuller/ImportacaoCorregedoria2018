@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Ccg2009Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Acusado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Acusado">
+          <Key>
+            <PropertyRef Name="id_acusado" />
+          </Key>
+          <Property Name="id_acusado" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="80" />
+          <Property Name="cpfcnpj" Type="varchar" MaxLength="20" />
+          <Property Name="rg" Type="varchar" MaxLength="20" />
+          <Property Name="cnh" Type="varchar" MaxLength="15" />
+          <Property Name="renach" Type="varchar" MaxLength="15" />
+          <Property Name="data_cadastro" Type="datetime" />
+          <Property Name="endereco" Type="varchar" MaxLength="70" />
+          <Property Name="bairro" Type="varchar" MaxLength="40" />
+          <Property Name="municipio" Type="varchar" MaxLength="200" />
+          <Property Name="uf" Type="varchar" MaxLength="2" />
+          <Property Name="cep" Type="varchar" MaxLength="10" />
+          <Property Name="fone" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="60" />
+          <Property Name="matricula" Type="nvarchar" MaxLength="12" />
+          <Property Name="pessoa_tipo" Type="varchar" MaxLength="10" />
+          <Property Name="IdAcusado" Type="int" />
+          <Property Name="DataCadastro" Type="datetime2" Precision="7" />
+          <Property Name="PessoaTipo" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Andamento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Andamento">
+          <Key>
+            <PropertyRef Name="id_andamento" />
+            <PropertyRef Name="id_processo" />
+          </Key>
+          <Property Name="id_andamento" Type="int" Nullable="false" />
+          <Property Name="id_processo" Type="int" Nullable="false" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="resumo" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Comissao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Comissao">
+          <Key>
+            <PropertyRef Name="id_comissao" />
+          </Key>
+          <Property Name="id_comissao" Type="int" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Denuncia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Denuncia">
+          <Key>
+            <PropertyRef Name="id_denuncia" />
+          </Key>
+          <Property Name="id_denuncia" Type="int" Nullable="false" />
+          <Property Name="denunciante" Type="varchar" MaxLength="70" />
+          <Property Name="denunciado" Type="varchar" MaxLength="70" />
+          <Property Name="local_fato" Type="varchar" MaxLength="60" />
+          <Property Name="data_fato" Type="datetime" />
+          <Property Name="hora_fato" Type="datetime" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="hora" Type="datetime" />
+          <Property Name="historico" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Municipio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Municipio">
+          <Key>
+            <PropertyRef Name="id_municipio" />
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="id_municipio" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.NadaConsta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NadaConsta">
+          <Key>
+            <PropertyRef Name="id_nada_consta" />
+          </Key>
+          <Property Name="id_nada_consta" Type="int" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="200" />
+          <Property Name="numero_documento" Type="nvarchar" MaxLength="50" />
+          <Property Name="data_consulta" Type="datetime" />
+          <Property Name="numero_ocorrencias" Type="int" />
+          <Property Name="servidor" Type="nvarchar" MaxLength="200" />
+          <Property Name="ano" Type="int" />
+          <Property Name="numero" Type="int" />
+          <Property Name="motivo" Type="nvarchar(max)" />
+          <Property Name="id_tipo_documento" Type="int" />
+          <Property Name="documento_solicitacao" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Ccg2009.dbo.Origem' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Origem">
+          <Property Name="id_processo" Type="int" />
+          <Property Name="id_comissao" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Processo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Processo">
+          <Key>
+            <PropertyRef Name="id_processo" />
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Ano" />
+            <PropertyRef Name="id_tipo_processo" />
+            <PropertyRef Name="id_tipo_documento" />
+          </Key>
+          <Property Name="id_processo" Type="int" Nullable="false" />
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Ano" Type="int" Nullable="false" />
+          <Property Name="id_tipo_processo" Type="int" Nullable="false" />
+          <Property Name="id_tipo_documento" Type="int" Nullable="false" />
+          <Property Name="id_municipio" Type="varchar" MaxLength="200" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="data_instauracao" Type="datetime" />
+          <Property Name="data_encerramento" Type="datetime" />
+          <Property Name="placa" Type="char" MaxLength="10" />
+          <Property Name="renavam" Type="char" MaxLength="10" />
+          <Property Name="presidente_comissao" Type="varchar" MaxLength="70" />
+          <Property Name="secretario_comissao" Type="varchar" MaxLength="70" />
+          <Property Name="membro_comissao" Type="varchar" MaxLength="70" />
+          <Property Name="local_fato" Type="varchar" MaxLength="60" />
+          <Property Name="data_fato" Type="datetime" />
+          <Property Name="portaria_instautaracao" Type="varchar" MaxLength="30" />
+          <Property Name="historico" Type="varchar(max)" />
+          <Property Name="portaria_encerramento" Type="varchar" MaxLength="30" />
+          <Property Name="punicao" Type="varchar(max)" />
+          <Property Name="andamento" Type="varchar(max)" />
+          <Property Name="id_comissao" Type="int" />
+          <Property Name="resumo_punicao" Type="varchar(max)" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.ProcessoAcusado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ProcessoAcusado">
+          <Key>
+            <PropertyRef Name="id_processo" />
+            <PropertyRef Name="id_acusado" />
+          </Key>
+          <Property Name="id_processo" Type="int" Nullable="false" />
+          <Property Name="id_acusado" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.ProcessoTestemunha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ProcessoTestemunha">
+          <Key>
+            <PropertyRef Name="id_processo" />
+            <PropertyRef Name="id_testemunha" />
+          </Key>
+          <Property Name="id_processo" Type="int" Nullable="false" />
+          <Property Name="id_testemunha" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Testemunha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Testemunha">
+          <Key>
+            <PropertyRef Name="id_testemunha" />
+          </Key>
+          <Property Name="id_testemunha" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="80" />
+          <Property Name="cpfcnpj" Type="varchar" MaxLength="20" />
+          <Property Name="rg" Type="varchar" MaxLength="20" />
+          <Property Name="cnh" Type="varchar" MaxLength="15" />
+          <Property Name="renach" Type="varchar" MaxLength="15" />
+          <Property Name="data_cadastro" Type="datetime" />
+          <Property Name="endereco" Type="varchar" MaxLength="70" />
+          <Property Name="bairro" Type="varchar" MaxLength="40" />
+          <Property Name="municipio" Type="varchar" MaxLength="200" />
+          <Property Name="uf" Type="varchar" MaxLength="2" />
+          <Property Name="cep" Type="varchar" MaxLength="10" />
+          <Property Name="fone" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.TipoDocumento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TipoDocumento">
+          <Key>
+            <PropertyRef Name="id_tipo_documento" />
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="id_tipo_documento" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="90" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.TipoNadaConsta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TipoNadaConsta">
+          <Key>
+            <PropertyRef Name="id_tipo_documento" />
+          </Key>
+          <Property Name="id_tipo_documento" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.TipoProcesso' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TipoProcesso">
+          <Key>
+            <PropertyRef Name="id_tipo_processo" />
+          </Key>
+          <Property Name="id_tipo_processo" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="90" />
+          <Property Name="sigla" Type="char" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Ccg2009.dbo.Tramitar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Tramitar">
+          <Key>
+            <PropertyRef Name="id_tramitacao" />
+          </Key>
+          <Property Name="id_tramitacao" Type="int" Nullable="false" />
+          <Property Name="id_processo" Type="int" />
+          <Property Name="data_envio" Type="datetime" />
+          <Property Name="usuario_envio" Type="nvarchar" MaxLength="50" />
+          <Property Name="destino" Type="int" />
+          <Property Name="UsuarioDestino" Type="varchar" MaxLength="200" />
+          <Property Name="data_aceite" Type="datetime" />
+          <Property Name="pessoa_aceite" Type="nvarchar" MaxLength="200" />
+          <Property Name="observacao" Type="nvarchar(max)" />
+          <Property Name="estatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Ccg2009ModelStoreContainer">
+          <EntitySet Name="Acusado" EntityType="Self.Acusado" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Acusado].[id_acusado] AS [id_acusado], 
+    [Acusado].[nome] AS [nome], 
+    [Acusado].[cpfcnpj] AS [cpfcnpj], 
+    [Acusado].[rg] AS [rg], 
+    [Acusado].[cnh] AS [cnh], 
+    [Acusado].[renach] AS [renach], 
+    [Acusado].[data_cadastro] AS [data_cadastro], 
+    [Acusado].[endereco] AS [endereco], 
+    [Acusado].[bairro] AS [bairro], 
+    [Acusado].[municipio] AS [municipio], 
+    [Acusado].[uf] AS [uf], 
+    [Acusado].[cep] AS [cep], 
+    [Acusado].[fone] AS [fone], 
+    [Acusado].[email] AS [email], 
+    [Acusado].[matricula] AS [matricula], 
+    [Acusado].[pessoa_tipo] AS [pessoa_tipo], 
+    [Acusado].[IdAcusado] AS [IdAcusado], 
+    [Acusado].[DataCadastro] AS [DataCadastro], 
+    [Acusado].[PessoaTipo] AS [PessoaTipo]
+    FROM [dbo].[Acusado] AS [Acusado]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Andamento" EntityType="Self.Andamento" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Andamento].[id_andamento] AS [id_andamento], 
+    [Andamento].[id_processo] AS [id_processo], 
+    [Andamento].[data] AS [data], 
+    [Andamento].[resumo] AS [resumo]
+    FROM [dbo].[Andamento] AS [Andamento]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Comissao" EntityType="Self.Comissao" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Comissao].[id_comissao] AS [id_comissao], 
+    [Comissao].[nome] AS [nome]
+    FROM [dbo].[Comissao] AS [Comissao]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Denuncia" EntityType="Self.Denuncia" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Denuncia].[id_denuncia] AS [id_denuncia], 
+    [Denuncia].[denunciante] AS [denunciante], 
+    [Denuncia].[denunciado] AS [denunciado], 
+    [Denuncia].[local_fato] AS [local_fato], 
+    [Denuncia].[data_fato] AS [data_fato], 
+    [Denuncia].[hora_fato] AS [hora_fato], 
+    [Denuncia].[data] AS [data], 
+    [Denuncia].[hora] AS [hora], 
+    [Denuncia].[historico] AS [historico]
+    FROM [dbo].[Denuncia] AS [Denuncia]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Municipio" EntityType="Self.Municipio" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Municipio].[id_municipio] AS [id_municipio], 
+    [Municipio].[nome] AS [nome]
+    FROM [dbo].[Municipio] AS [Municipio]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NadaConsta" EntityType="Self.NadaConsta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NadaConsta].[id_nada_consta] AS [id_nada_consta], 
+    [NadaConsta].[nome] AS [nome], 
+    [NadaConsta].[numero_documento] AS [numero_documento], 
+    [NadaConsta].[data_consulta] AS [data_consulta], 
+    [NadaConsta].[numero_ocorrencias] AS [numero_ocorrencias], 
+    [NadaConsta].[servidor] AS [servidor], 
+    [NadaConsta].[ano] AS [ano], 
+    [NadaConsta].[numero] AS [numero], 
+    [NadaConsta].[motivo] AS [motivo], 
+    [NadaConsta].[id_tipo_documento] AS [id_tipo_documento], 
+    [NadaConsta].[documento_solicitacao] AS [documento_solicitacao]
+    FROM [dbo].[NadaConsta] AS [NadaConsta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Processo" EntityType="Self.Processo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Processo].[id_processo] AS [id_processo], 
+    [Processo].[Numero] AS [Numero], 
+    [Processo].[Ano] AS [Ano], 
+    [Processo].[id_tipo_processo] AS [id_tipo_processo], 
+    [Processo].[id_tipo_documento] AS [id_tipo_documento], 
+    [Processo].[id_municipio] AS [id_municipio], 
+    [Processo].[data] AS [data], 
+    [Processo].[data_instauracao] AS [data_instauracao], 
+    [Processo].[data_encerramento] AS [data_encerramento], 
+    [Processo].[placa] AS [placa], 
+    [Processo].[renavam] AS [renavam], 
+    [Processo].[presidente_comissao] AS [presidente_comissao], 
+    [Processo].[secretario_comissao] AS [secretario_comissao], 
+    [Processo].[membro_comissao] AS [membro_comissao], 
+    [Processo].[local_fato] AS [local_fato], 
+    [Processo].[data_fato] AS [data_fato], 
+    [Processo].[portaria_instautaracao] AS [portaria_instautaracao], 
+    [Processo].[historico] AS [historico], 
+    [Processo].[portaria_encerramento] AS [portaria_encerramento], 
+    [Processo].[punicao] AS [punicao], 
+    [Processo].[andamento] AS [andamento], 
+    [Processo].[id_comissao] AS [id_comissao], 
+    [Processo].[resumo_punicao] AS [resumo_punicao], 
+    [Processo].[Status] AS [Status]
+    FROM [dbo].[Processo] AS [Processo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ProcessoAcusado" EntityType="Self.ProcessoAcusado" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ProcessoAcusado].[id_processo] AS [id_processo], 
+    [ProcessoAcusado].[id_acusado] AS [id_acusado]
+    FROM [dbo].[ProcessoAcusado] AS [ProcessoAcusado]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ProcessoTestemunha" EntityType="Self.ProcessoTestemunha" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ProcessoTestemunha].[id_processo] AS [id_processo], 
+    [ProcessoTestemunha].[id_testemunha] AS [id_testemunha]
+    FROM [dbo].[ProcessoTestemunha] AS [ProcessoTestemunha]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Testemunha" EntityType="Self.Testemunha" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Testemunha].[id_testemunha] AS [id_testemunha], 
+    [Testemunha].[nome] AS [nome], 
+    [Testemunha].[cpfcnpj] AS [cpfcnpj], 
+    [Testemunha].[rg] AS [rg], 
+    [Testemunha].[cnh] AS [cnh], 
+    [Testemunha].[renach] AS [renach], 
+    [Testemunha].[data_cadastro] AS [data_cadastro], 
+    [Testemunha].[endereco] AS [endereco], 
+    [Testemunha].[bairro] AS [bairro], 
+    [Testemunha].[municipio] AS [municipio], 
+    [Testemunha].[uf] AS [uf], 
+    [Testemunha].[cep] AS [cep], 
+    [Testemunha].[fone] AS [fone], 
+    [Testemunha].[email] AS [email]
+    FROM [dbo].[Testemunha] AS [Testemunha]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TipoDocumento].[id_tipo_documento] AS [id_tipo_documento], 
+    [TipoDocumento].[Nome] AS [Nome]
+    FROM [dbo].[TipoDocumento] AS [TipoDocumento]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TipoNadaConsta" EntityType="Self.TipoNadaConsta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TipoNadaConsta].[id_tipo_documento] AS [id_tipo_documento], 
+    [TipoNadaConsta].[nome] AS [nome]
+    FROM [dbo].[TipoNadaConsta] AS [TipoNadaConsta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TipoProcesso" EntityType="Self.TipoProcesso" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TipoProcesso].[id_tipo_processo] AS [id_tipo_processo], 
+    [TipoProcesso].[nome] AS [nome], 
+    [TipoProcesso].[sigla] AS [sigla]
+    FROM [dbo].[TipoProcesso] AS [TipoProcesso]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Tramitar" EntityType="Self.Tramitar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tramitar].[id_tramitacao] AS [id_tramitacao], 
+    [Tramitar].[id_processo] AS [id_processo], 
+    [Tramitar].[data_envio] AS [data_envio], 
+    [Tramitar].[usuario_envio] AS [usuario_envio], 
+    [Tramitar].[destino] AS [destino], 
+    [Tramitar].[UsuarioDestino] AS [UsuarioDestino], 
+    [Tramitar].[data_aceite] AS [data_aceite], 
+    [Tramitar].[pessoa_aceite] AS [pessoa_aceite], 
+    [Tramitar].[observacao] AS [observacao], 
+    [Tramitar].[estatus] AS [estatus]
+    FROM [dbo].[Tramitar] AS [Tramitar]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Ccg2009Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Acusado">
+          <Key>
+            <PropertyRef Name="id_acusado" />
+          </Key>
+          <Property Name="id_acusado" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="cpfcnpj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cnh" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="renach" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="data_cadastro" Type="DateTime" Precision="3" />
+          <Property Name="endereco" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="municipio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="matricula" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="pessoa_tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IdAcusado" Type="Int32" />
+          <Property Name="DataCadastro" Type="DateTime" Precision="7" />
+          <Property Name="PessoaTipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Andamento">
+          <Key>
+            <PropertyRef Name="id_andamento" />
+            <PropertyRef Name="id_processo" />
+          </Key>
+          <Property Name="id_andamento" Type="Int32" Nullable="false" />
+          <Property Name="id_processo" Type="Int32" Nullable="false" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="resumo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Comissao">
+          <Key>
+            <PropertyRef Name="id_comissao" />
+          </Key>
+          <Property Name="id_comissao" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Denuncia">
+          <Key>
+            <PropertyRef Name="id_denuncia" />
+          </Key>
+          <Property Name="id_denuncia" Type="Int32" Nullable="false" />
+          <Property Name="denunciante" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="denunciado" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="local_fato" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="data_fato" Type="DateTime" Precision="3" />
+          <Property Name="hora_fato" Type="DateTime" Precision="3" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="hora" Type="DateTime" Precision="3" />
+          <Property Name="historico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Municipio">
+          <Key>
+            <PropertyRef Name="id_municipio" />
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="id_municipio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NadaConsta">
+          <Key>
+            <PropertyRef Name="id_nada_consta" />
+          </Key>
+          <Property Name="id_nada_consta" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="numero_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="data_consulta" Type="DateTime" Precision="3" />
+          <Property Name="numero_ocorrencias" Type="Int32" />
+          <Property Name="servidor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ano" Type="Int32" />
+          <Property Name="numero" Type="Int32" />
+          <Property Name="motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_tipo_documento" Type="Int32" />
+          <Property Name="documento_solicitacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Processo">
+          <Key>
+            <PropertyRef Name="id_processo" />
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Ano" />
+            <PropertyRef Name="id_tipo_processo" />
+            <PropertyRef Name="id_tipo_documento" />
+          </Key>
+          <Property Name="id_processo" Type="Int32" Nullable="false" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="Ano" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_processo" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_documento" Type="Int32" Nullable="false" />
+          <Property Name="id_municipio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="data_instauracao" Type="DateTime" Precision="3" />
+          <Property Name="data_encerramento" Type="DateTime" Precision="3" />
+          <Property Name="placa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="renavam" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="presidente_comissao" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="secretario_comissao" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="membro_comissao" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="local_fato" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="data_fato" Type="DateTime" Precision="3" />
+          <Property Name="portaria_instautaracao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="historico" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="portaria_encerramento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="punicao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="andamento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_comissao" Type="Int32" />
+          <Property Name="resumo_punicao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProcessoAcusado">
+          <Key>
+            <PropertyRef Name="id_processo" />
+            <PropertyRef Name="id_acusado" />
+          </Key>
+          <Property Name="id_processo" Type="Int32" Nullable="false" />
+          <Property Name="id_acusado" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProcessoTestemunha">
+          <Key>
+            <PropertyRef Name="id_processo" />
+            <PropertyRef Name="id_testemunha" />
+          </Key>
+          <Property Name="id_processo" Type="Int32" Nullable="false" />
+          <Property Name="id_testemunha" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Testemunha">
+          <Key>
+            <PropertyRef Name="id_testemunha" />
+          </Key>
+          <Property Name="id_testemunha" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="cpfcnpj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cnh" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="renach" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="data_cadastro" Type="DateTime" Precision="3" />
+          <Property Name="endereco" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="municipio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TipoDocumento">
+          <Key>
+            <PropertyRef Name="id_tipo_documento" />
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="id_tipo_documento" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoNadaConsta">
+          <Key>
+            <PropertyRef Name="id_tipo_documento" />
+          </Key>
+          <Property Name="id_tipo_documento" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TipoProcesso">
+          <Key>
+            <PropertyRef Name="id_tipo_processo" />
+          </Key>
+          <Property Name="id_tipo_processo" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="sigla" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tramitar">
+          <Key>
+            <PropertyRef Name="id_tramitacao" />
+          </Key>
+          <Property Name="id_tramitacao" Type="Int32" Nullable="false" />
+          <Property Name="id_processo" Type="Int32" />
+          <Property Name="data_envio" Type="DateTime" Precision="3" />
+          <Property Name="usuario_envio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="destino" Type="Int32" />
+          <Property Name="UsuarioDestino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="data_aceite" Type="DateTime" Precision="3" />
+          <Property Name="pessoa_aceite" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="observacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Ccg2009Conexao" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Acusado" EntityType="Self.Acusado" />
+          <EntitySet Name="Andamento" EntityType="Self.Andamento" />
+          <EntitySet Name="Comissao" EntityType="Self.Comissao" />
+          <EntitySet Name="Denuncia" EntityType="Self.Denuncia" />
+          <EntitySet Name="Municipio" EntityType="Self.Municipio" />
+          <EntitySet Name="NadaConsta" EntityType="Self.NadaConsta" />
+          <EntitySet Name="Processo" EntityType="Self.Processo" />
+          <EntitySet Name="ProcessoAcusado" EntityType="Self.ProcessoAcusado" />
+          <EntitySet Name="ProcessoTestemunha" EntityType="Self.ProcessoTestemunha" />
+          <EntitySet Name="Testemunha" EntityType="Self.Testemunha" />
+          <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" />
+          <EntitySet Name="TipoNadaConsta" EntityType="Self.TipoNadaConsta" />
+          <EntitySet Name="TipoProcesso" EntityType="Self.TipoProcesso" />
+          <EntitySet Name="Tramitar" EntityType="Self.Tramitar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Ccg2009ModelStoreContainer" CdmEntityContainer="Ccg2009Conexao">
+          <EntitySetMapping Name="Acusado">
+            <EntityTypeMapping TypeName="Ccg2009Model.Acusado">
+              <MappingFragment StoreEntitySet="Acusado">
+                <ScalarProperty Name="id_acusado" ColumnName="id_acusado" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="cpfcnpj" ColumnName="cpfcnpj" />
+                <ScalarProperty Name="rg" ColumnName="rg" />
+                <ScalarProperty Name="cnh" ColumnName="cnh" />
+                <ScalarProperty Name="renach" ColumnName="renach" />
+                <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="uf" ColumnName="uf" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="fone" ColumnName="fone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="pessoa_tipo" ColumnName="pessoa_tipo" />
+                <ScalarProperty Name="IdAcusado" ColumnName="IdAcusado" />
+                <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+                <ScalarProperty Name="PessoaTipo" ColumnName="PessoaTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Andamento">
+            <EntityTypeMapping TypeName="Ccg2009Model.Andamento">
+              <MappingFragment StoreEntitySet="Andamento">
+                <ScalarProperty Name="id_andamento" ColumnName="id_andamento" />
+                <ScalarProperty Name="id_processo" ColumnName="id_processo" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="resumo" ColumnName="resumo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comissao">
+            <EntityTypeMapping TypeName="Ccg2009Model.Comissao">
+              <MappingFragment StoreEntitySet="Comissao">
+                <ScalarProperty Name="id_comissao" ColumnName="id_comissao" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Denuncia">
+            <EntityTypeMapping TypeName="Ccg2009Model.Denuncia">
+              <MappingFragment StoreEntitySet="Denuncia">
+                <ScalarProperty Name="id_denuncia" ColumnName="id_denuncia" />
+                <ScalarProperty Name="denunciante" ColumnName="denunciante" />
+                <ScalarProperty Name="denunciado" ColumnName="denunciado" />
+                <ScalarProperty Name="local_fato" ColumnName="local_fato" />
+                <ScalarProperty Name="data_fato" ColumnName="data_fato" />
+                <ScalarProperty Name="hora_fato" ColumnName="hora_fato" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="historico" ColumnName="historico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipio">
+            <EntityTypeMapping TypeName="Ccg2009Model.Municipio">
+              <MappingFragment StoreEntitySet="Municipio">
+                <ScalarProperty Name="id_municipio" ColumnName="id_municipio" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NadaConsta">
+            <EntityTypeMapping TypeName="Ccg2009Model.NadaConsta">
+              <MappingFragment StoreEntitySet="NadaConsta">
+                <ScalarProperty Name="id_nada_consta" ColumnName="id_nada_consta" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="numero_documento" ColumnName="numero_documento" />
+                <ScalarProperty Name="data_consulta" ColumnName="data_consulta" />
+                <ScalarProperty Name="numero_ocorrencias" ColumnName="numero_ocorrencias" />
+                <ScalarProperty Name="servidor" ColumnName="servidor" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="motivo" ColumnName="motivo" />
+                <ScalarProperty Name="id_tipo_documento" ColumnName="id_tipo_documento" />
+                <ScalarProperty Name="documento_solicitacao" ColumnName="documento_solicitacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Processo">
+            <EntityTypeMapping TypeName="Ccg2009Model.Processo">
+              <MappingFragment StoreEntitySet="Processo">
+                <ScalarProperty Name="id_processo" ColumnName="id_processo" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="id_tipo_processo" ColumnName="id_tipo_processo" />
+                <ScalarProperty Name="id_tipo_documento" ColumnName="id_tipo_documento" />
+                <ScalarProperty Name="id_municipio" ColumnName="id_municipio" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="data_instauracao" ColumnName="data_instauracao" />
+                <ScalarProperty Name="data_encerramento" ColumnName="data_encerramento" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="renavam" ColumnName="renavam" />
+                <ScalarProperty Name="presidente_comissao" ColumnName="presidente_comissao" />
+                <ScalarProperty Name="secretario_comissao" ColumnName="secretario_comissao" />
+                <ScalarProperty Name="membro_comissao" ColumnName="membro_comissao" />
+                <ScalarProperty Name="local_fato" ColumnName="local_fato" />
+                <ScalarProperty Name="data_fato" ColumnName="data_fato" />
+                <ScalarProperty Name="portaria_instautaracao" ColumnName="portaria_instautaracao" />
+                <ScalarProperty Name="historico" ColumnName="historico" />
+                <ScalarProperty Name="portaria_encerramento" ColumnName="portaria_encerramento" />
+                <ScalarProperty Name="punicao" ColumnName="punicao" />
+                <ScalarProperty Name="andamento" ColumnName="andamento" />
+                <ScalarProperty Name="id_comissao" ColumnName="id_comissao" />
+                <ScalarProperty Name="resumo_punicao" ColumnName="resumo_punicao" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProcessoAcusado">
+            <EntityTypeMapping TypeName="Ccg2009Model.ProcessoAcusado">
+              <MappingFragment StoreEntitySet="ProcessoAcusado">
+                <ScalarProperty Name="id_processo" ColumnName="id_processo" />
+                <ScalarProperty Name="id_acusado" ColumnName="id_acusado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProcessoTestemunha">
+            <EntityTypeMapping TypeName="Ccg2009Model.ProcessoTestemunha">
+              <MappingFragment StoreEntitySet="ProcessoTestemunha">
+                <ScalarProperty Name="id_processo" ColumnName="id_processo" />
+                <ScalarProperty Name="id_testemunha" ColumnName="id_testemunha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Testemunha">
+            <EntityTypeMapping TypeName="Ccg2009Model.Testemunha">
+              <MappingFragment StoreEntitySet="Testemunha">
+                <ScalarProperty Name="id_testemunha" ColumnName="id_testemunha" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="cpfcnpj" ColumnName="cpfcnpj" />
+                <ScalarProperty Name="rg" ColumnName="rg" />
+                <ScalarProperty Name="cnh" ColumnName="cnh" />
+                <ScalarProperty Name="renach" ColumnName="renach" />
+                <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="uf" ColumnName="uf" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="fone" ColumnName="fone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDocumento">
+            <EntityTypeMapping TypeName="Ccg2009Model.TipoDocumento">
+              <MappingFragment StoreEntitySet="TipoDocumento">
+                <ScalarProperty Name="id_tipo_documento" ColumnName="id_tipo_documento" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoNadaConsta">
+            <EntityTypeMapping TypeName="Ccg2009Model.TipoNadaConsta">
+              <MappingFragment StoreEntitySet="TipoNadaConsta">
+                <ScalarProperty Name="id_tipo_documento" ColumnName="id_tipo_documento" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoProcesso">
+            <EntityTypeMapping TypeName="Ccg2009Model.TipoProcesso">
+              <MappingFragment StoreEntitySet="TipoProcesso">
+                <ScalarProperty Name="id_tipo_processo" ColumnName="id_tipo_processo" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="sigla" ColumnName="sigla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tramitar">
+            <EntityTypeMapping TypeName="Ccg2009Model.Tramitar">
+              <MappingFragment StoreEntitySet="Tramitar">
+                <ScalarProperty Name="id_tramitacao" ColumnName="id_tramitacao" />
+                <ScalarProperty Name="id_processo" ColumnName="id_processo" />
+                <ScalarProperty Name="data_envio" ColumnName="data_envio" />
+                <ScalarProperty Name="usuario_envio" ColumnName="usuario_envio" />
+                <ScalarProperty Name="destino" ColumnName="destino" />
+                <ScalarProperty Name="UsuarioDestino" ColumnName="UsuarioDestino" />
+                <ScalarProperty Name="data_aceite" ColumnName="data_aceite" />
+                <ScalarProperty Name="pessoa_aceite" ColumnName="pessoa_aceite" />
+                <ScalarProperty Name="observacao" ColumnName="observacao" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
