@@ -173,9 +173,62 @@
     <Compile Include="InfraCcg2009\Models\TipoNadaConsta.cs" />
     <Compile Include="InfraCcg2009\Models\TipoProcesso.cs" />
     <Compile Include="InfraCcg2009\Models\Tramitar.cs" />
-    <Compile Include="InfraCcg2009\Negocio\NegocioAcusado.cs" />
     <Compile Include="InfraCcg2009\Negocio\NegocioCcg2009.cs" />
     <Compile Include="InfraCorregedoria2018\Factory\NHibernateHelperCorregedoria2018.cs" />
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\BancoCorregedoria2018.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoCorregedoria2018.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\BancoCorregedoria2018.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\BancoCorregedoria2018.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoCorregedoria2018.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\Certidao.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\Corregedor.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\Endereco.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\Municipio.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\Pena.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\Pessoa.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\Processo.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\ProcessoEncerramento.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\ProcessoSindicado.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\ProcessoTestemunha.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\sysdiagrams.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\tipoDocumento.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraCorregedoria2018\LinqCorregedoria2018\tipoProcesso.cs">
+      <DependentUpon>BancoCorregedoria2018.tt</DependentUpon>
+    </Compile>
     <Compile Include="InfraCorregedoria2018\Map\CertidaoMap.cs" />
     <Compile Include="InfraCorregedoria2018\Map\CorregedorMap.cs" />
     <Compile Include="InfraCorregedoria2018\Map\EnderecoMap.cs" />
@@ -200,6 +253,7 @@
     <Compile Include="InfraCorregedoria2018\Models\ProcessoTestemunha.cs" />
     <Compile Include="InfraCorregedoria2018\Models\TipoDocumento.cs" />
     <Compile Include="InfraCorregedoria2018\Models\TipoProcesso.cs" />
+    <Compile Include="InfraCorregedoria2018\Negocio\NegocioCorregedoria2018.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -211,6 +265,13 @@
     </EntityDeploy>
     <None Include="InfraCcg2009\LinqCcg2009\BancoCcg2009.edmx.diagram">
       <DependentUpon>BancoCcg2009.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="InfraCorregedoria2018\LinqCorregedoria2018\BancoCorregedoria2018.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BancoCorregedoria2018.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="InfraCorregedoria2018\LinqCorregedoria2018\BancoCorregedoria2018.edmx.diagram">
+      <DependentUpon>BancoCorregedoria2018.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -232,6 +293,17 @@
       <DependentUpon>BancoCcg2009.edmx</DependentUpon>
       <LastGenOutput>BancoCcg2009.cs</LastGenOutput>
     </Content>
+    <Content Include="InfraCorregedoria2018\LinqCorregedoria2018\BancoCorregedoria2018.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BancoCorregedoria2018.edmx</DependentUpon>
+      <LastGenOutput>BancoCorregedoria2018.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="InfraCorregedoria2018\LinqCorregedoria2018\BancoCorregedoria2018.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BancoCorregedoria2018.edmx</DependentUpon>
+      <LastGenOutput>BancoCorregedoria2018.cs</LastGenOutput>
+    </Content>
+    <Content Include="sql\ImportacaoCCG2018.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

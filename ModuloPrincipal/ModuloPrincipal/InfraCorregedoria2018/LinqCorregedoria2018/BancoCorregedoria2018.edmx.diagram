@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="070afd49d12a49f0a16cf8a7e6ac807a" Name="Diagram1">
+        <EntityTypeShape EntityType="Corregedoria2018Model.Certidao" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.Corregedor" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.Endereco" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.Municipio" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.Pena" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.Pessoa" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.Processo" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.ProcessoSindicado" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.ProcessoTestemunha" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.tipoDocumento" Width="1.5" PointX="7.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.tipoProcesso" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Corregedoria2018Model.ProcessoEncerramento" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_Certidao_Corregedor" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_Endereco_Municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_Pessoa_Endereco" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_Processo_Municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_Pena_ProcessoAcusado" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_ProcessoAcusado_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_ProcessoTestemunha_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_Processo_tipoProcesso" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_ProcessoAcusado_Processo" ManuallyRouted="false" />
+        <AssociationConnector Association="Corregedoria2018Model.FK_ProcessoTestemunha_Processo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

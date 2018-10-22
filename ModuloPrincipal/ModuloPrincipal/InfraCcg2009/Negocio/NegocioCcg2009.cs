@@ -28,6 +28,14 @@ namespace ModuloPrincipal.InfraCcg2009.Negocio
 
         }
 
+        //método para listar
+        public List<Testemunha> ListarTestemunha()
+        {
+
+            return db.Testemunha.ToList();
+
+        }
+
         public List<Andamento> ListarAndamento()
         {
 
@@ -55,6 +63,35 @@ namespace ModuloPrincipal.InfraCcg2009.Negocio
             return db.Municipio.ToList();
 
         }
+
+        public List<NadaConsta> ListarNadaConsta()
+        {
+
+            return db.NadaConsta.ToList();
+
+        }
+
+        public List<Processo> ListarProcesso()
+        {
+
+            return db.Processo.ToList();
+
+        }
+
+        public List<ProcessoAcusado> ListarProcessoAcusado()
+        {
+
+            return db.ProcessoAcusado.ToList();
+
+        }
+
+        public List<ProcessoTestemunha> ListarProcessoTestemunha()
+        {
+
+            return db.ProcessoTestemunha.ToList();
+
+        }
+
 
     }
 }
