@@ -35,7 +35,7 @@ namespace ModuloPrincipal
 
             List<Acusado> acusados = origem.ListarAcusado();
             List<Testemunha> testemunhas = origem.ListarTestemunha();
-
+                        
 
             foreach (var obj in acusados)
             {
@@ -64,7 +64,28 @@ namespace ModuloPrincipal
                 //Verificar se tem o mesmo cpf
                 destino.GravarPessoa(pessoa);
 
-                            
+                List<ProcessoAcusado> processoAcusados = origem.ListarProcessoAcusado(obj.id_acusado);
+
+                foreach (var pa in processoAcusados)
+                {
+                    ProcessoSindicado processoSindicado = new ProcessoSindicado();
+                    processoSindicado.idProcesso = pa.id_processo;
+                    processoSindicado.idPessoa = pessoa.idPessoa;
+
+                    destino.GravarProcessoSindicado(processoSindicado);
+                }
+
+                List<InfraCcg2009.LinqCcg2009.ProcessoTestemunha> processoTestemunhas = origem.ListarProcessoTestemunha();
+
+                foreach (var pt in processoTestemunhas)
+                {
+                    InfraCorregedoria2018.LinqCorregedoria2018.ProcessoTestemunha Testemunha = new InfraCorregedoria2018.LinqCorregedoria2018.ProcessoTestemunha();
+                    Testemunha.idProcesso = pt.id_processo;
+                    Testemunha.idPessoa = pessoa.idPessoa;
+
+                    destino.GravarProcessoTestemunha(Testemunha);
+                }
+
 
 
             }

@@ -78,10 +78,10 @@ namespace ModuloPrincipal.InfraCcg2009.Negocio
 
         }
 
-        public List<ProcessoAcusado> ListarProcessoAcusado()
+        public List<ProcessoAcusado> ListarProcessoAcusado(int idAcusado)
         {
 
-            return db.ProcessoAcusado.ToList();
+            return db.ProcessoAcusado.Where(o => o.id_acusado == idAcusado).ToList();
 
         }
 
