@@ -30,6 +30,7 @@ namespace ModuloPrincipal.InfraCorregedoria2018.LinqCorregedoria2018
         public string historico { get; set; }
         public Nullable<System.DateTime> dataEncerramento { get; set; }
         public Nullable<int> idMunicipio { get; set; }
+        public Nullable<int> idProcessoOrigem { get; set; }
     
         public virtual Municipio Municipio { get; set; }
         public virtual tipoProcesso tipoProcesso { get; set; }

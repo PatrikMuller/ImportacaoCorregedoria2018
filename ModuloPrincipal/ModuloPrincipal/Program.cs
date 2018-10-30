@@ -35,7 +35,10 @@ namespace ModuloPrincipal
 
             List<Acusado> acusados = origem.ListarAcusado();
             List<Testemunha> testemunhas = origem.ListarTestemunha();
-                        
+
+
+            Console.ReadKey();
+
 
             foreach (var obj in acusados)
             {
@@ -89,11 +92,7 @@ namespace ModuloPrincipal
 
 
             }
-
-
-            
-
-
+                        
             Console.ReadKey();
 
         }

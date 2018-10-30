@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Corregedoria2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Corregedoria2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Certidao">
           <Key>
             <PropertyRef Name="idCertidao" />
@@ -83,6 +83,7 @@
           <Property Name="historico" Type="varchar(max)" Nullable="false" />
           <Property Name="dataEncerramento" Type="date" />
           <Property Name="idMunicipio" Type="int" />
+          <Property Name="idProcessoOrigem" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Corregedoria2018.dbo.ProcessoEncerramento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -314,8 +315,7 @@ warning 6002: The table/view 'Corregedoria2018.dbo.ProcessoEncerramento' does no
             <End Role="ProcessoTestemunha" EntitySet="ProcessoTestemunha" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Corregedoria2018Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -411,6 +411,7 @@ warning 6002: The table/view 'Corregedoria2018.dbo.ProcessoEncerramento' does no
           <NavigationProperty Name="tipoProcesso" Relationship="Self.FK_Processo_tipoProcesso" FromRole="Processo" ToRole="tipoProcesso" />
           <NavigationProperty Name="ProcessoSindicado" Relationship="Self.FK_ProcessoAcusado_Processo" FromRole="Processo" ToRole="ProcessoSindicado" />
           <NavigationProperty Name="ProcessoTestemunha" Relationship="Self.FK_ProcessoTestemunha_Processo" FromRole="Processo" ToRole="ProcessoTestemunha" />
+          <Property Name="idProcessoOrigem" Type="Int32" />
         </EntityType>
         <EntityType Name="ProcessoSindicado">
           <Key>
@@ -721,6 +722,7 @@ warning 6002: The table/view 'Corregedoria2018.dbo.ProcessoEncerramento' does no
           <EntitySetMapping Name="Processo">
             <EntityTypeMapping TypeName="Corregedoria2018Model.Processo">
               <MappingFragment StoreEntitySet="Processo">
+                <ScalarProperty Name="idProcessoOrigem" ColumnName="idProcessoOrigem" />
                 <ScalarProperty Name="idProcesso" ColumnName="idProcesso" />
                 <ScalarProperty Name="idTipoProcesso" ColumnName="idTipoProcesso" />
                 <ScalarProperty Name="numeroProcesso" ColumnName="numeroProcesso" />
