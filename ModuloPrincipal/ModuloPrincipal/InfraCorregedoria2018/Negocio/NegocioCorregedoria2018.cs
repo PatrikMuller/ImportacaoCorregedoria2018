@@ -44,12 +44,25 @@ namespace ModuloPrincipal.InfraCorregedoria2018.Negocio
             db.Processo.Add(processo);
 
         }
+        public List<Processo> ListarProcesso(int idOrigem)
+        {
+
+            return db.Processo.Where(o => o.idProcessoOrigem == idOrigem).ToList();
+
+        }
 
         //método para gravar
         public void GravarProcessoSindicado(ProcessoSindicado processoSindicado)
         {
 
             db.ProcessoSindicado.Add(processoSindicado);
+            db.SaveChanges();
+
+        }
+        public List<ProcessoSindicado> ListarProcessoSindicado(int idProcesso)
+        {
+
+            return db.ProcessoSindicado.Where(o => o.idProcesso == idProcesso).ToList();
 
         }
 
@@ -58,9 +71,18 @@ namespace ModuloPrincipal.InfraCorregedoria2018.Negocio
         {
 
             db.ProcessoTestemunha.Add(processoTestemunha);
+            db.SaveChanges();
 
         }
 
+        //método para gravar
+        public void GravarPena(Pena pena)
+        {
+
+            db.Pena.Add(pena);
+            db.SaveChanges();
+
+        }
 
     }
 }

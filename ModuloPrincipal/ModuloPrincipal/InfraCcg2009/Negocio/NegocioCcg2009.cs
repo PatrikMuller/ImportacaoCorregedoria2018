@@ -74,7 +74,7 @@ namespace ModuloPrincipal.InfraCcg2009.Negocio
         public List<Processo> ListarProcesso()
         {
 
-            return db.Processo.ToList();
+            return db.Processo.Where(o => o.data_encerramento.HasValue).ToList();
 
         }
 
